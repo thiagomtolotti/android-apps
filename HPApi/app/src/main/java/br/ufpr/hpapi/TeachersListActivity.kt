@@ -1,7 +1,9 @@
 package br.ufpr.hpapi
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.ProgressBar
@@ -59,6 +61,14 @@ class TeachersListActivity : AppCompatActivity() {
                 val arrayAdapter: ArrayAdapter<String> = ArrayAdapter(this@TeachersListActivity, android.R.layout.simple_list_item_1, teachers.map {it.name})
 
                 listView.adapter = arrayAdapter
+                listView.onItemClickListener =
+                    AdapterView.OnItemClickListener {_,_, position, _ ->
+                        val memberId = teachers[position].id
+
+                        val intent = Intent(this@TeachersListActivity, CharacterDetailsActivity::class.java)
+                        intent.putExtra("id", memberId)
+                        startActivity(intent)
+                    }
 
                 showContent()
             }catch(e: Exception) {

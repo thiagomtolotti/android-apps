@@ -1,8 +1,10 @@
 package br.ufpr.hpapi
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.ProgressBar
@@ -80,6 +82,15 @@ class HouseListActivity : AppCompatActivity() {
                 val arrayAdapter: ArrayAdapter<String> = ArrayAdapter(this@HouseListActivity, android.R.layout.simple_list_item_1, members.map {it.name})
 
                 listView.adapter = arrayAdapter
+                listView.onItemClickListener =
+                    AdapterView.OnItemClickListener {_,_, position, _ ->
+                        val memberId = members[position].id
+
+                        val intent = Intent(this@HouseListActivity, CharacterDetailsActivity::class.java)
+                        intent.putExtra("id", memberId)
+                        startActivity(intent)
+                    }
+
 
                 showContent()
             }catch (e:Exception){

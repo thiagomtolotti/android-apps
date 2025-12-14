@@ -45,6 +45,12 @@ class CharacterDetailsActivity : AppCompatActivity() {
         val retrofit = Retrofit.Builder().baseUrl("https://hp-api.onrender.com/").addConverterFactory(GsonConverterFactory.create()).build()
 
         hpApi = retrofit.create(HPApi::class.java)
+
+        val id = intent.getStringExtra("id")
+
+        if(id != null) {
+            etId.setText(id)
+        }
     }
 
     fun getCharacterDetails(view: View) {
