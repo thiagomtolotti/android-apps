@@ -5,6 +5,109 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="24dp"
     tools:context=".HouseListActivity">
 
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detalhes do personagem"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="24dp"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/houseRadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rbGryffindor"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Grifinória"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                />
+
+                <RadioButton
+                    android:id="@+id/rbSlytherin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sonserina"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <RadioButton
+                    android:id="@+id/rbRavenclaw"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Corvinal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rbGryffindor" />
+
+                <RadioButton
+                    android:id="@+id/rbHufflepuff"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Lufa-Lufa"
+                    app:layout_constraintEnd_toEndOf="parent"
+                />
+
+            </RadioGroup>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="12dp"
+                android:layout_weight="0"
+                android:backgroundTint="#FF9D0B"
+                android:onClick="onListHouseMembersClick"
+                android:text="Visualizar membros"
+                android:textColor="#0D0D0D"
+                app:cornerRadius="4dp" />
+
+            <ProgressBar
+                android:id="@+id/pbListHouseMembers"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:visibility="gone" />
+
+            <ListView
+                android:id="@+id/lvHouseMembers"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvListHouseMembersError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="Houve um erro ao buscar os membros!"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

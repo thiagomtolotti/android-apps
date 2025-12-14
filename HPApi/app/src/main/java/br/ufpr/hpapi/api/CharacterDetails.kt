@@ -1,4 +1,4 @@
-package br.ufpr.hpapi
+package br.ufpr.hpapi.api
 
 data class CharacterDetails(
     val name: String,

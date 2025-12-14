@@ -42,7 +42,7 @@
                 android:tooltipText="Digite o id do personagem" />
 
             <Button
-                android:id="@+id/exitBtn2"
+                android:id="@+id/onListHouseMembersClick"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="12dp"
